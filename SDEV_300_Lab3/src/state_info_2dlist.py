@@ -14,14 +14,14 @@ from PIL import Image
 # import csv containing needed values as 2d list
 with open("state_data.csv", "r", encoding="utf-8") as state_file:
     datareader = csv.reader(state_file, delimiter=",")
-state_data = []
-for row in datareader:
-    state_data.append(row)
-# create list containing valid state names for validation purposes
-valid_states = []
-for row in state_data:
-    if row != []:
-        valid_states.append(row[0])
+    state_data = []
+    for row in datareader:
+        state_data.append(row)
+    # create list containing valid state names for validation purposes
+    valid_states = []
+    for row in state_data:
+        if row != []:
+            valid_states.append(row[0])
 # create sorted list of paths of flower images
 # images are already named 001.jpg-050.jpg in alphabetical order by corresponding state
 FLOWERS_PATH = "flowerimg/"
