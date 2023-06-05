@@ -12,7 +12,7 @@ from PIL import Image
 # List of lists to hold U.S. States sorted alphabetically, capital, state population, and flower
 
 # import csv containing needed values as 2d list
-with open("state_data.csv", "r") as state_file:
+with open("state_data.csv", "r", encoding="utf-8") as state_file:
     datareader = csv.reader(state_file, delimiter=",")
 state_data = []
 for row in datareader:
