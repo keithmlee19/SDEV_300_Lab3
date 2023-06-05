@@ -10,9 +10,10 @@ from PIL import Image
 # https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html
 # https://www.crestcapital.com/tax/us_states_and_capitals
 # List of lists to hold U.S. States sorted alphabetically, capital, state population, and flower
+
 # import csv containing needed values as 2d list
-state_file = open("state_data.csv", "r")
-datareader = csv.reader(state_file, delimiter=",")
+with open("state_data.csv", "r") as state_file:
+    datareader = csv.reader(state_file, delimiter=",")
 state_data = []
 for row in datareader:
     state_data.append(row)
@@ -43,10 +44,10 @@ def search_for_state():
     Images from: https://www.flowerglossary.com/state-flowers/'''
     while True:
         try:
-            st = input("Please enter a state name to search\n")
-            if st in valid_states:
+            state = input("Please enter a state name to search\n")
+            if state in valid_states:
                 # finds index of row where state matches input
-                state_index = valid_states.index(st)
+                state_index = valid_states.index(state)
                 # prints state info
                 print(state_data[state_index])
                 # opens and displays correct image
@@ -75,13 +76,13 @@ def update_pop():
     '''Update specified state's population to user-entered value'''    
     while True:
         try:
-            st = input("Please enter the name of the state to update its population\n")
+            state = input("Please enter the name of the state to update its population\n")
             # if state exists
-            if st in valid_states:
+            if state in valid_states:
                 new_pop = int(input("Please enter the new population of the state\n"))
                 if new_pop >= 0:
                     # retrieves index of state
-                    state_index = valid_states.index(st)
+                    state_index = valid_states.index(state)
                     # updates corresponding population entry in master table
                     state_data[state_index][2] = new_pop
                     # finds row where state matches input
@@ -102,7 +103,8 @@ def handle_menu():
         try:
             print("Welcome to the U.S. State Information application.")
             print("Please select from the following choices:")
-            print("1. Display all US States in alphabetical order with capital, state population, and flower")
+            print("1. Display all US States in alphabetical order with capital, \
+            state population, and flower")
             print("2. Search for a state and display its capital name, state population, \
             and an image of the associated state flower.")
             print("3. Provide a bar graph of the top 5 populated states showing their populations.")
