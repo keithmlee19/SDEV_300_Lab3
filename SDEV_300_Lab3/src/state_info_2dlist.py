@@ -6,10 +6,10 @@ import csv
 import matplotlib.pyplot as plt
 from PIL import Image
 
-'''Info sources:
-https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html
-https://www.crestcapital.com/tax/us_states_and_capitals
-List of lists to hold U.S. States sorted alphabetically, capital, state population, and flower'''
+# Info sources:
+# https://www.census.gov/data/tables/2020/dec/2020-apportionment-data.html
+# https://www.crestcapital.com/tax/us_states_and_capitals
+# List of lists to hold U.S. States sorted alphabetically, capital, state population, and flower
 # import csv containing needed values as 2d list
 state_file = open("state_data.csv", "r")
 datareader = csv.reader(state_file, delimiter=",")
